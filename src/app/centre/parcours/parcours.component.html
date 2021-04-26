@@ -1,0 +1,57 @@
+<div class="card mt-lg-5">
+  <div class="card-header">information Parcours</div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+      <th>Libelle</th>
+      <th> description </th>
+      <th> delete </th>
+      <th>update</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of parcourss; index as i">
+        <td>{{p.libelle}}</td>
+        <td>{{p.description}}</td>
+        <td><span (click)="delete(i)"><i class="fa fa-trash btn btn-danger"></i></span> </td>
+        <td><span (click)="update(i,p)"><i class="fa fa-edit btn btn-warning"></i></span>
+          <button class="btn  btn-sm btn-outline-primary  fa fa-eye" (click)="afficheCours(i)"></button>
+
+      </tr>
+      </tbody>
+    </table>
+  </div><div class="card-footer">
+  <button class="btn  btn-outline-primary btn-block" (click)="open(content)">Ajouter un nouveau parcours</button>
+</div></div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouts Parcours</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form">
+      <div class="form-group">
+        <label>Code</label>
+        <input type="text" class="form-control" [(ngModel)]="parcours.ref">
+      </div>
+      <div class="form-group">
+        <label>libelle</label>
+        <input type="text" class="form-control" [(ngModel)]="parcours.libelle">
+      </div>
+      <div class="form-group">
+        <label>duree</label>
+        <input type="number" class="form-control" [(ngModel)]="parcours.description">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="save()" [disabled] !="validateSave()" >Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
+  </div>
+</ng-template>
+
+

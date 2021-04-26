@@ -1,0 +1,67 @@
+
+<div class="card mt-lg-5">
+  <div class="card-header">information Cours</div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+      <th>Reference</th>
+      <th>Libelle</th>
+      <th> delete </th>
+      <th>update</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of courss; index as i">
+        <td>{{c.ref}}</td>
+        <td>{{c.libelle}}</td>
+        <td><span (click)="delete(i)"><i class="fa fa-trash btn btn-danger"></i></span> </td>
+        <td><span (click)="update(i,c)"><i class="fa fa-edit btn btn-warning"></i></span>
+          <button class="btn  btn-sm btn-outline-info btn-plus " (click)="afficheSecList(i)"><i class="fa fa-eye"></i></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <button class="btn  btn-outline-primary btn-block" (click)="open(content)">Ajouter une nouveau section</button>
+  </div>
+</div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouts Cours</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form">
+      <div class="form-group">
+        <label>Identification</label>
+        <input type="text" class="form-control" [(ngModel)]="cours.id">
+      </div>
+      <label>Reference</label>
+      <input type="text" class="form-control" [(ngModel)]="cours.ref">
+    </div>
+    <div class="form-group">
+      <label>libelle</label>
+      <input type="text" class="form-control" [(ngModel)]="cours.libelle">
+    </div>
+    <div class="form-group">
+      <label>description</label>
+      <input type="texte" class="form-control" [(ngModel)]="cours.description">
+    </div>
+    <div class="form-group">
+      <label>image</label>
+      <input type="texte" class="form-control" [(ngModel)]="cours.image">
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="save()" [disabled] !="validateSave()" >Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
+  </div>
+</ng-template>
+
+
