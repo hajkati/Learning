@@ -1,5 +1,5 @@
-import {Section} from "./section.model";
-import {Parcours} from "./parcours.model";
+import {Section} from './section.model';
+import {Parcours} from './parcours.model';
 export class Cours {
   public  id: number ;
   public ref: string;

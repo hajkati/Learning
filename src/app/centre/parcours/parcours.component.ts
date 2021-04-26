@@ -18,22 +18,27 @@ export class ParcoursComponent implements OnInit {
 
     return  this.parcoursService.parcourss ;
   }
+  // tslint:disable-next-line:typedef
   public delete(index: number){
     this.parcourss.splice(index, 1);
   }
+  // tslint:disable-next-line:typedef
   public update(index: number, parcours: Parcours){
     this.parcoursService.update(index, parcours);
   }
+  // tslint:disable-next-line:typedef
   public save(){
     this.parcoursService.save();
   }
+  // tslint:disable-next-line:typedef
   public validateSave(){
     return  this.parcoursService.validateSave();
   }
 
   get parcours(): Parcours {
 
-    return this.parcoursService.parcours;}
+    return this.parcoursService.parcours;
+  }
   ngOnInit(): void {
     this.parcoursService.findAll();
   }

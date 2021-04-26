@@ -1,4 +1,4 @@
-import { Cours } from "./cours.model";
+import { Cours } from './cours.model';
 export class Section {
   public  id: number ;
   public ref: string;

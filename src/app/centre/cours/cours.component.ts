@@ -13,6 +13,7 @@ export class CoursComponent implements OnInit {
   open(content): void {
     this.modalService.open(content);
   }
+  // tslint:disable-next-line:typedef
   public save(){
     this.coursService.save();
   }
@@ -21,9 +22,11 @@ export class CoursComponent implements OnInit {
     return this.coursService.cours;
   }
 
+  // tslint:disable-next-line:typedef
   public delete(index: number){
     this.courss.splice(index, 1);
   }
+  // tslint:disable-next-line:typedef
   public update(index: number, cours: Cours){
     this.coursService.update(index, cours);
 

@@ -1,5 +1,4 @@
-import {Cours} from "./cours.model";
-import {CalendarView} from "@angular/material/datepicker/testing";
+import {Cours} from './cours.model';
 export class Parcours {
   public  id: number ;
   public  ref: string ;
