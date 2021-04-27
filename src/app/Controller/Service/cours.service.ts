@@ -8,14 +8,12 @@ import {Section} from '../model/section.model';
   providedIn: 'root'
 })
 export class CoursService {
-
   private urlBase = 'http://localhost:8036';
   private  url = '/E-learning/cours';
   private _cours: Cours;
   private _courss: Array<Cours >;
   private _sections: Array<Section>;
   private _index: number;
-
   public validateSave(): boolean{
     return this.cours.ref != null;
   }
