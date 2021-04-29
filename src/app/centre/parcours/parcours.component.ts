@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Parcours} from '../../Controller/Model/parcours.model';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {Parcours} from '../../Controller/Model/parcours.model';
+
 @Component({
   selector: 'app-parcours',
   templateUrl: './parcours.component.html',
@@ -9,41 +11,34 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ParcoursComponent implements OnInit {
 
-
   constructor(private parcoursService: ParcoursService, private modalService: NgbModal) { }
+
+  // tslint:disable-next-line:typedef
+  public deleteParcours(parcour: Parcours){
+    this.parcoursService.deleteParcours(parcour);
+  }
+
+  public save(): void {
+    this.parcoursService.save();
+  }
+
+  ngOnInit(): void {
+    this.parcoursService.init();
+  }
+
+  get parcoursList(): Array<Parcours> {
+    return this.parcoursService.parcoursList;
+  }
+  get parcours(): Parcours {
+    return this.parcoursService.parcours;
+  }
+
   open(content): void {
     this.modalService.open(content);
   }
-  get parcourss(): Array<Parcours> {
 
-    return  this.parcoursService.parcourss ;
-  }
   // tslint:disable-next-line:typedef
-  public delete(index: number){
-    this.parcourss.splice(index, 1);
+  afficheCours(parcour: Parcours): void {
+    this.parcoursService.afficheCours(parcour);
   }
-  // tslint:disable-next-line:typedef
-  public update(index: number, parcours: Parcours){
-    this.parcoursService.update(index, parcours);
-  }
-  // tslint:disable-next-line:typedef
-  public save(){
-    this.parcoursService.save();
-  }
-  // tslint:disable-next-line:typedef
-  public validateSave(){
-    return  this.parcoursService.validateSave();
-  }
-
-  get parcours(): Parcours {
-
-    return this.parcoursService.parcours;
-  }
-  ngOnInit(): void {
-    this.parcoursService.findAll();
-  }
-  afficheCours(i: number): void {
-    this.parcoursService.afficheCours(i);
-  }
-
 }

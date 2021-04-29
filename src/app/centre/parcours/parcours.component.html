@@ -1,33 +1,33 @@
-<div class="card mt-lg-5">
-  <div class="card-header">information Parcours</div>
+<div class="card" >
+  <div class="card-header">Liste des Parcours</div>
   <div class="card-body">
-    <table class="table table-hover table-striped">
+    <table class="table table-stripped">
       <thead>
-      <th>Libelle</th>
-      <th> description </th>
-      <th> delete </th>
-      <th>update</th>
+      <th>Nom</th>
+      <th>description</th>
+      <th>Action</th>
       </thead>
       <tbody>
-      <tr *ngFor="let p of parcourss; index as i">
+      <tr  *ngFor="let p of parcoursList;index as i ">
         <td>{{p.libelle}}</td>
-        <td>{{p.description}}</td>
-        <td><span (click)="delete(i)"><i class="fa fa-trash btn btn-danger"></i></span> </td>
-        <td><span (click)="update(i,p)"><i class="fa fa-edit btn btn-warning"></i></span>
-          <button class="btn  btn-sm btn-outline-primary  fa fa-eye" (click)="afficheCours(i)"></button>
-
+        <td>{{p.description }}</td>
+        <td  >
+          <button class="btn  btn-sm btn-outline-primary  fa fa-eye" (click)="afficheCours(p)"></button>
+          <button class="btn  btn-sm btn-outline-warning "><i class="fa fa-edit"></i></button>
+          <button class="btn  btn-sm btn-outline-danger btn-trash" (click)="deleteParcours(p)"><i class="fa fa-trash"></i></button>
+        </td>
       </tr>
       </tbody>
     </table>
-  </div><div class="card-footer">
-  <button class="btn  btn-outline-primary btn-block" (click)="open(content)">Ajouter un nouveau parcours</button>
-</div></div>
-
-
+  </div>
+  <div class="card-footer">
+    <button class="btn  btn-outline-primary btn-block" (click)="open(content)">Ajouter un nouveau parcours</button>
+  </div>
+</div>
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Ajouts Parcours</h4>
+    <h4 class="modal-title" id="modal-basic-title">ajout parcours</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -35,7 +35,7 @@
   <div class="modal-body">
     <div class="form">
       <div class="form-group">
-        <label>Code</label>
+        <label>reference</label>
         <input type="text" class="form-control" [(ngModel)]="parcours.ref">
       </div>
       <div class="form-group">
@@ -43,15 +43,14 @@
         <input type="text" class="form-control" [(ngModel)]="parcours.libelle">
       </div>
       <div class="form-group">
-        <label>duree</label>
-        <input type="number" class="form-control" [(ngModel)]="parcours.description">
+        <label>description</label>
+        <input type="text" class="form-control" [(ngModel)]="parcours.description">
       </div>
+
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary" (click)="save()" [disabled] !="validateSave()" >Save</button>
+    <button type="button" class="btn btn-outline-primary" (click)="save()" >Save</button>
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
   </div>
 </ng-template>
-
-

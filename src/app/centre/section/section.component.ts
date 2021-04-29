@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ParcoursService} from '../../Controller/Service/parcours.service';
 import {Section} from '../../Controller/Model/section.model';
-import {SectionService} from '../../Controller/Service/section.service';
+
 @Component({
   selector: 'app-section',
   templateUrl: './section.component.html',
@@ -9,35 +10,29 @@ import {SectionService} from '../../Controller/Service/section.service';
 })
 export class SectionComponent implements OnInit {
 
-  constructor(private sectionService: SectionService, private modalService: NgbModal) { }
-  open(content): void {
-    this.modalService.open(content);
-  }
+  constructor(private parcoursService: ParcoursService, private modalService: NgbModal) { }
   // tslint:disable-next-line:typedef
-  public save(){
-    this.sectionService.save();
+  public deleteSection(sections: Section){
+    this.parcoursService.deleteSection(sections);
   }
   get section(): Section {
-
-    return this.sectionService.section;
+    return this.parcoursService.section;
+  }
+  get sectionList(): Array<Section> {
+    return this.parcoursService.sectionList;
   }
 
-  get sections(): Array<Section> {
-
-    return  this.sectionService.sections ;
-  }
-  // tslint:disable-next-line:typedef
-  public delete(index: number){
-    this.sections.splice(index, 1);
-  }
-  // tslint:disable-next-line:typedef
-  public update(index: number, section: Section){
-    this.sectionService.update(index, section);
+  public save(): void{
+    this.parcoursService.save();
   }
 
   ngOnInit(): void {
-    this.sectionService.findAll();
-
   }
 
+  open(content): void{
+    this.modalService.open(content);
+  }
+  public savesection(): void{
+    this.parcoursService.savesection();
+  }
 }

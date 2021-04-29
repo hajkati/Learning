@@ -11,6 +11,6 @@ export class Cours {
   public nombreLienFinalise: number;
   public nombreLienEnCourse: number;
   public numeroOrder: number;
-  public parcours: Parcours ;
-  public  sections = new Array<Section>();
+  public parcours = new  Parcours() ;
+  public  sectionList = new Array<Section>();
 }

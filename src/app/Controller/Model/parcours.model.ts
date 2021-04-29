@@ -7,5 +7,5 @@ export class Parcours {
   public  dateCreation: Date = new Date();
   public  numeroOrder: number;
   public  description: number;
-  public  courss = new Array<Cours>();
+  public  coursList = new Array<Cours>();
 }
