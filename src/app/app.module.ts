@@ -1,26 +1,29 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CentreComponent } from './centre/centre.component';
 import { ParcoursComponent } from './Centre/parcours/parcours.component';
-import { CoursComponent } from './Centre/cours/cours.component';
-import { SectionComponent } from './Centre/section/section.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { MenuComponent } from './Centre/menu/menu.component';
+import { PageNotFoundComponent } from './Centre/page-not-found/page-not-found.component';
+import {AppRoutingModule, components} from './app-routing.module';
+import {CentreComponent} from './centre/centre.component';
 @NgModule({
   declarations: [
     AppComponent,
+    components,
     CentreComponent,
     ParcoursComponent,
-    CoursComponent,
-    SectionComponent
+    MenuComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

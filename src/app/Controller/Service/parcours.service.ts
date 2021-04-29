@@ -21,8 +21,8 @@ export class ParcoursService {
   public savecours(): void {
     this.http.post('http://localhost:8036/E-learning/cours/', this.cours).subscribe(
       data => {if (data > 0){
-        this._coursList.push(this.clonecours(this.cours));
-        // this.afficheCours(this.cours.parcours);
+        //  this._coursList.push(this.clonecours(this.cours));
+        this.afficheCours(this.cours.parcours);
         this._cours = null ;
       }}, eror => {
         console.log('error');
@@ -33,7 +33,8 @@ export class ParcoursService {
   public savesection(): void {
     this.http.post('http://localhost:8036/E-learning/section/', this.section).subscribe(
       data => {if (data > 0){
-        this.sectionList.push(this.clonesection(this.section));
+        /*this.sectionList.push(this.clonesection(this.section));*/
+        this.affichelistSection(this.section.cours);
         this._section = null;
       }}, eror => {
         console.log('error');
@@ -45,7 +46,8 @@ export class ParcoursService {
     this.http.post<number>('http://localhost:8036/E-learning/parcours/', this.parcours).subscribe(
       data => {
         if (data >= 0){
-          this.parcoursList.push(this.clone(this.parcours));
+          /*this.parcoursList.push(this.clone(this.parcours));*/
+          this.init();
           this._parcours = null ;
         }
       }, eror => {
@@ -175,6 +177,7 @@ export class ParcoursService {
     clone.dateCreation = parcours.dateCreation;
     clone.datePublication = parcours.datePublication;
     clone.coursList = parcours.coursList;
+    clone.centre = parcours.centre;
     return clone;
   }
   public clonecours(cours: Cours): Cours {
