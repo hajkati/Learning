@@ -1,9 +1,9 @@
 /* tslint:disable:typedef */
 import { Component, OnInit } from '@angular/core';
-import {Etudiant} from '../../Controller/model/etudiant.model';
-import {EtudiantService} from '../../Controller/service/etudiant.service';
-import {Centre} from '../../Controller/model/centre.model';
-import {Parcours} from '../../Controller/model/parcours.model';
+import {Etudiant} from '../../../Controller/Model/etudiant.model';
+import {EtudiantService} from '../../../Controller/Service/etudiant.service';
+import {Centre} from '../../../Controller/Model/centre.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

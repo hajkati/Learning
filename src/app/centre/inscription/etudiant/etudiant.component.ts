@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EtudiantService} from '../../Controller/service/etudiant.service';
-import {Etudiant} from '../../Controller/model/Etudiant.model';
-import {Parcours} from '../../Controller/model/parcours.model';
-import {Centre} from '../../Controller/model/centre.model';
+import {EtudiantService} from '../../../Controller/Service/etudiant.service';
+import {Etudiant} from '../../../Controller/Model/etudiant.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
+import {Centre} from '../../../Controller/Model/centre.model';
 
 @Component({
   selector: 'app-etudiant',

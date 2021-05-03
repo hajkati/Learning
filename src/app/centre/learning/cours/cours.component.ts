@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Section} from '../../Controller/Model/section.model';
-import {Cours} from '../../Controller/Model/cours.model';
-import {Parcours} from '../../Controller/Model/parcours.model';
+import {Section} from '../../../Controller/Model/section.model';
+import {Cours} from '../../../Controller/Model/cours.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
 @Component({
   selector: 'app-cours',
   templateUrl: './cours.component.html',
@@ -19,9 +19,6 @@ export class CoursComponent implements OnInit {
   get section(): Section {
     return this.parcoursService.section;
   }
-  get sectionList(): Array<Section> {
-    return this.parcoursService.sectionList;
-  }
   get cours(): Cours {
     return this.parcoursService.cours;
   }
@@ -30,9 +27,6 @@ export class CoursComponent implements OnInit {
   }
   get parcours(): Parcours {
     return this.parcoursService.parcours;
-  }
-  get coursList2(): Array<Cours> {
-    return this.parcoursService.coursList2;
   }
   get coursList(): Array<Cours> {
     return this.parcoursService.coursList;
@@ -47,10 +41,6 @@ export class CoursComponent implements OnInit {
 
   afficheSecList(cour: Cours): void {
     this.parcoursService.affichelistSection(cour);
-  }
-
-  findCoursByLibelle(libel: string): void {
-    this.parcoursService.findCoursByLibelle(libel);
   }
   // tslint:disable-next-line:typedef
   init() {

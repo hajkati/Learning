@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Section} from '../../Controller/Model/section.model';
-import {CategorieSection} from '../../Controller/Model/categorie-section.model';
-import {SuperCategorieSection} from '../../Controller/Model/super-categorie-section.model';
+import {Section} from '../../../Controller/Model/section.model';
+import {CategorieSection} from '../../../Controller/Model/categorie-section.model';
+import {SuperCategorieSection} from '../../../Controller/Model/super-categorie-section.model';
 
 @Component({
   selector: 'app-categorie-section-list',

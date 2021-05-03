@@ -1,13 +1,13 @@
 /* tslint:disable:typedef whitespace */
 import { Component, OnInit } from '@angular/core';
-import {Question} from '../../controller/model/question.model';
-import {Reponse} from '../../controller/model/reponse.model';
-import {QuestionService} from '../../controller/service/question.service';
-import {Quiz} from '../../controller/model/quiz.model';
-import {Etudiant} from '../../controller/model/etudiant.model';
-import {QuizEtudiant} from '../../controller/model/quiz-etudiant.model';
-import {ReponseEtudiant} from '../../controller/model/reponse-etudiant.model';
-import {TypeDeQuestion} from '../../controller/model/type-de-question.model';
+import {Question} from '../../../Controller/Model/question.model';
+import {Reponse} from '../../../Controller/Model/reponse.model';
+import {QuestionService} from '../../../Controller/Service/question.service';
+import {Quiz} from '../../../Controller/Model/quiz.model';
+import {Etudiant} from '../../../Controller/Model/etudiant.model';
+import {QuizEtudiant} from '../../../Controller/Model/quiz-etudiant.model';
+import {ReponseEtudiant} from '../../../Controller/Model/reponse-etudiant.model';
+import {TypeDeQuestion} from '../../../Controller/Model/type-de-question.model';
 
 @Component({
   selector: 'app-question-quiz',

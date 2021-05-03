@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {QuizService} from '../../controller/service/quiz.service';
-import {Question} from '../../controller/model/question.model';
-import {Reponse} from '../../controller/model/reponse.model';
-import {TypeDeQuestion} from '../../controller/model/type-de-question.model';
+import {QuizService} from '../../../Controller/Service/quiz.service';
+import {Question} from '../../../Controller/Model/question.model';
+import {Reponse} from '../../../Controller/Model/reponse.model';
+import {TypeDeQuestion} from '../../../Controller/Model/type-de-question.model';
 import {createViewChild} from '@angular/compiler/src/core';
-import {Quiz} from '../../controller/model/quiz.model';
+import {Quiz} from '../../../Controller/Model/quiz.model';
 
 @Component({
   selector: 'app-quiz-create',

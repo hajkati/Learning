@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SuperCategorieSection} from '../../Controller/Model/super-categorie-section.model';
-import {Parcours} from '../../Controller/Model/parcours.model';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {SuperCategorieSection} from '../../../Controller/Model/super-categorie-section.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

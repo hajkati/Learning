@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
-import {Parcours} from '../../Controller/Model/parcours.model';
-import {Cours} from '../../Controller/Model/cours.model';
-import {Section} from '../../Controller/Model/section.model';
-import {Centre} from '../../Controller/Model/centre.model';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
+import {Parcours} from '../../../Controller/Model/parcours.model';
+import {Cours} from '../../../Controller/Model/cours.model';
+import {Section} from '../../../Controller/Model/section.model';
+import {Centre} from '../../../Controller/Model/centre.model';
 
 @Component({
   selector: 'app-parcours',

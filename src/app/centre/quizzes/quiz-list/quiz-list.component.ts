@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {QuizService} from '../../controller/service/quiz.service';
-import {Question} from '../../controller/model/question.model';
-import {Reponse} from '../../controller/model/reponse.model';
-import {TypeDeQuestion} from '../../controller/model/type-de-question.model';
+import {QuizService} from '../../../Controller/Service/quiz.service';
+import {Question} from '../../../Controller/Model/question.model';
+import {Reponse} from '../../../Controller/Model/reponse.model';
+import {TypeDeQuestion} from '../../../Controller/Model/type-de-question.model';
 
 @Component({
   selector: 'app-quiz-list',

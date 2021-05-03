@@ -17,15 +17,13 @@ export class ParcoursService {
   private _cours: Cours;
   private _coursList: Array<Cours>;
   private _coursList2: Array<Cours>;
-  private _coursList3: Array<Cours>;
   private _section: Section;
   private _categoriesectionList: Array<CategorieSection>;
   private _categoriesection: CategorieSection;
   private _supercategoriesectionList: Array<SuperCategorieSection>;
   private _supercategoriesection: SuperCategorieSection;
   private _sectionList: Array<Section>;
-  private _sectionList2: Array<Section>;
-  private _sectionList3: Array<Section>;
+  private _sectionListByLibelle: Array<Section>;
   private _centre: Centre;
   private _centreList: Array<Centre>;
   private _index: number;
@@ -140,7 +138,8 @@ export class ParcoursService {
       }
     );
   }
-  public findAllCours2(): void {
+
+  public findAllCours(): void {
     this.http.get< Array<Cours> >('http://localhost:8036/E-learning/cours/').subscribe(
       data => {
         this._coursList2 = data ;
@@ -149,34 +148,17 @@ export class ParcoursService {
       }
     );
   }
-  public findAllCours(): void {
-    this.http.get< Array<Cours> >('http://localhost:8036/E-learning/cours/').subscribe(
-      data => {
-        this._coursList3 = data ;
-      }, error => {
-        console.log('error');
-      }
-    );
-  }
   public findAllSection(): void {
     this.http.get< Array<Section> >('http://localhost:8036/E-learning/section/').subscribe(
       data => {
-        this._sectionList = data ;
+        this._sectionListByLibelle = data ;
       }, error => {
         console.log('error');
       }
     );
-
-  }public findAllSection2(): void {
-    this.http.get< Array<Section> >('http://localhost:8036/E-learning/section/').subscribe(
-      data => {
-        this._sectionList3 = data ;
-      }, error => {
-        console.log('error');
-      }
-    );
-
-  }public findAllCategorieSection(): void {
+    this._sectionList = null;
+  }
+  public findAllCategorieSection(): void {
     this.http.get< Array<CategorieSection> >('http://localhost:8036/E-learning/categoriesection/').subscribe(
       data => {
         this._categoriesectionList = data ;
@@ -312,6 +294,17 @@ export class ParcoursService {
     this._centre = value;
   }
 
+  get sectionListByLibelle(): Array<Section> {
+    if (this._sectionListByLibelle == null){
+      this._sectionListByLibelle = new Array<Section>();
+    }
+    return this._sectionListByLibelle;
+  }
+
+  set sectionListByLibelle(value: Array<Section>) {
+    this._sectionListByLibelle = value;
+  }
+
   get section(): Section {
     if (this._section == null) {
       this._section = new Section();
@@ -325,20 +318,8 @@ export class ParcoursService {
     }
     return this._sectionList;
   }
-  get sectionList3(): Array<Section> {
-    if (this._sectionList3 == null){
-      this._sectionList3 = new Array<Section>();
-    }
-    return this._sectionList3;
-  }
-  get sectionList2(): Array<Section> {
-    if (this._sectionList2 == null){
-      this._sectionList2 = new Array<Section>();
-    }
-    return this._sectionList2;
-  }
 
-  get centreList(): Array<Centre> {
+ get centreList(): Array<Centre> {
     return this._centreList;
   }
 
@@ -361,11 +342,6 @@ export class ParcoursService {
       this._coursList2 = new Array<Cours>() ;
     }
     return this._coursList2;
-  }get coursList3(): Array<Cours> {
-    if (this._coursList3 == null){
-      this._coursList3 = new Array<Cours>() ;
-    }
-    return this._coursList3;
   }
   get coursList(): Array<Cours> {
     if (this._coursList == null){
@@ -463,7 +439,7 @@ export class ParcoursService {
   public findSectionByLibelle(libel: string) {
     this.http.get<Array<Section>>('http://localhost:8036/E-learning/section/libelle/' + libel ).subscribe(
       data => {
-        this._sectionList2 = data;
+        this._sectionListByLibelle = data;
         this._section = null ;
       }, error => {
         console.log('erroro');

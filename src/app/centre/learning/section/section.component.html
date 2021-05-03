@@ -38,7 +38,7 @@
       <div class="form-group">
         <label class="primaryLab">Cours reference</label><br>
         <select type="text" class="btn btn-block btn-outline-light form-control" name="fieldName" style="background-color: lightblue" name="Parcours" (click)="findAllCours()" [(ngModel)]="section.cours.ref" >
-          <option  selected="selected" *ngFor="let c of coursList3"  [ngValue]="c.ref"> {{c.libelle}}</option>
+          <option  selected="selected" *ngFor="let c of coursList"  [ngValue]="c.ref"> {{c.libelle}}</option>
         </select>
 
       </div>

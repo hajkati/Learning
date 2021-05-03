@@ -1,24 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {ParcoursComponent} from './centre/parcours/parcours.component';
+import {ParcoursComponent} from './centre/learning/parcours/parcours.component';
 import {PageNotFoundComponent} from './centre/page-not-found/page-not-found.component';
 import {CentreComponent} from './centre/centre.component';
-import {CoursListComponent} from './centre/cours-list/cours-list.component';
-import {ParcoursListComponent} from './centre/parcours-list/parcours-list.component';
-import {SectionListComponent} from './centre/section-list/section-list.component';
-import {CategorieSectionListComponent} from './centre/categorie-section-list/categorie-section-list.component';
-import {SuperCategorieSectionListComponent} from './centre/super-categorie-section-list/super-categorie-section-list.component';
 import {LearningComponent} from './centre/learning/learning.component';
-import {InscriptionListComponent} from './centre/inscription-list/inscription-list.component';
 import {EtatInscription} from './Controller/Model/etat-inscription.model';
-import {EtudiantComponent} from './centre/etudiant/etudiant.component';
-import {EtudiantListComponent} from './centre/etudiant-list/etudiant-list.component';
-import {QuestionQuizComponent} from './centre/question-quiz/question-quiz.component';
-import {QuizCreateComponent} from './centre/quiz-create/quiz-create.component';
-import {QuizListComponent} from './centre/quiz-list/quiz-list.component';
+import {EtudiantComponent} from './centre/inscription/etudiant/etudiant.component';
+import {QuestionQuizComponent} from './centre/quizzes/question-quiz/question-quiz.component';
+import {QuizCreateComponent} from './centre/quizzes/quiz-create/quiz-create.component';
+
+import {ParcoursListComponent} from './centre/learning/parcours-list/parcours-list.component';
+import {CoursListComponent} from './centre/learning/cours-list/cours-list.component';
+import {SectionListComponent} from './centre/learning/section-list/section-list.component';
+import {CategorieSectionListComponent} from './centre/learning/categorie-section-list/categorie-section-list.component';
+import {SuperCategorieSectionListComponent} from './centre/learning/super-categorie-section-list/super-categorie-section-list.component';
+
+import {EtudiantListComponent} from './centre/inscription/etudiant-list/etudiant-list.component';
+import {InscriptionListComponent} from './centre/inscription/inscription-list/inscription-list.component';
+import {QuizListComponent} from './centre/quizzes/quiz-list/quiz-list.component';
+
 // tslint:disable-next-line:max-line-length
-export const components = [CentreComponent, ParcoursListComponent , CoursListComponent, SectionListComponent, CategorieSectionListComponent, SuperCategorieSectionListComponent ,  InscriptionListComponent , EtudiantComponent , EtudiantListComponent , QuestionQuizComponent , QuizCreateComponent , QuizListComponent];
+export const components = [LearningComponent, ParcoursListComponent , CoursListComponent, SectionListComponent, CategorieSectionListComponent, SuperCategorieSectionListComponent ,  InscriptionListComponent , EtudiantComponent , EtudiantListComponent , QuestionQuizComponent , QuizCreateComponent , QuizListComponent];
 const routes: Routes = [
   {path: '' , component: PageNotFoundComponent},
   {path: 'parcours' , component: components[0]},

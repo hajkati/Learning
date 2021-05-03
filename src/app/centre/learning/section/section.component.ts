@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Section} from '../../Controller/Model/section.model';
-import {Cours} from '../../Controller/Model/cours.model';
-import {Parcours} from '../../Controller/Model/parcours.model';
-import {CategorieSection} from '../../Controller/Model/categorie-section.model';
+import {Section} from '../../../Controller/Model/section.model';
+import {Cours} from '../../../Controller/Model/cours.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
+import {CategorieSection} from '../../../Controller/Model/categorie-section.model';
 
 @Component({
   selector: 'app-section',
@@ -16,9 +16,6 @@ export class SectionComponent implements OnInit {
   // tslint:disable-next-line:typedef
   public deleteSection(sections: Section){
     this.parcoursService.deleteSection(sections);
-  }
-  findSectionByLibelle(libell: string): void {
-    this.parcoursService.findSectionByLibelle(libell);
   }
   // tslint:disable-next-line:typedef
   findAllCategorieSection() {
@@ -34,14 +31,8 @@ export class SectionComponent implements OnInit {
   get categoriesection(): CategorieSection {
     return this.parcoursService.categoriesection;
   }
-  get coursList3(): Array<Cours> {
-    return this.parcoursService.coursList3;
-  }
   get sectionList(): Array<Section> {
     return this.parcoursService.sectionList;
-  }
-  get sectionList2(): Array<Section> {
-    return this.parcoursService.sectionList2;
   }
   get categoriesectionList(): Array<CategorieSection> {
     return this.parcoursService.categoriesectionList;
@@ -71,12 +62,8 @@ export class SectionComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  // @ts-ignore
   open(content): void {
     this.modalService.open(content);
   }
-  // @ts-ignore
-  open(contentSearch): void {
-    this.modalService.open(contentSearch);
-  }
+
 }

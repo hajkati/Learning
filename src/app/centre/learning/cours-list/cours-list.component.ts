@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Cours} from '../../Controller/Model/cours.model';
-import {ParcoursService} from '../../Controller/Service/parcours.service';
+import {Cours} from '../../../Controller/Model/cours.model';
+import {ParcoursService} from '../../../Controller/Service/parcours.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -17,7 +17,7 @@ export class CoursListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.parcoursService.findAllCours2();
+    this.parcoursService.findAllCours();
   }get cours(): Cours {
     return this.parcoursService.cours;
   }

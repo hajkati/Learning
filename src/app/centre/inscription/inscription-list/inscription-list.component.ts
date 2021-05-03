@@ -1,13 +1,13 @@
 /* tslint:disable:typedef */
 import { Component, OnInit } from '@angular/core';
-import {Etudiant} from '../../Controller/model/etudiant.model';
-import {Inscription} from '../../Controller/model/inscription.model';
-import {InscriptionService} from '../../Controller/service/inscription.service';
-import {Centre} from '../../Controller/model/centre.model';
-import {Parcours} from '../../Controller/model/parcours.model';
-import {EtatInscription} from '../../Controller/model/etat-inscription.model';
+import {Etudiant} from '../../../Controller/Model/etudiant.model';
+import {Inscription} from '../../../Controller/Model/inscription.model';
+import {InscriptionService} from '../../../Controller/Service/inscription.service';
+import {Centre} from '../../../Controller/Model/centre.model';
+import {Parcours} from '../../../Controller/Model/parcours.model';
+import {EtatInscription} from '../../../Controller/Model/etat-inscription.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EtudiantService} from '../../Controller/service/etudiant.service';
+import {EtudiantService} from '../../../Controller/Service/etudiant.service';
 @Component({
   selector: 'app-inscription-list',
   templateUrl: './inscription-list.component.html',
