@@ -1,8 +1,8 @@
-<div class="row">
+
   <div class="card  mt-lg-5" >
-  <div class="card-header">Liste des Parcours</div>
+  <div class="card-header" style="background-color: powderblue">Liste des Parcours</div>
   <div class="card-body">
-    <table class="table table-stripped">
+    <table class="table table-responsive table-hover">
       <thead>
       <th>Nom</th>
       <th>Action</th>
@@ -11,238 +11,53 @@
       <tr  *ngFor="let p of parcoursList;index as i ">
         <td>{{p.libelle}}</td>
         <td  >
-          <button class="btn  btn-sm btn-outline-primary  fa fa-eye" (click)="afficheCours(p)"></button>
-          <button class="btn  btn-sm btn-outline-warning "><i class="fa fa-edit"></i></button>
+          <button class="btn  btn-sm btn-sm btn-outline-info btn-plus fa fa-eye" (click)="afficheCours(p)"></button>
+          <button class="btn  btn-sm btn-outline-warning " (click)="open(content)" (click)="updateParcours(i,p)"><i class="fa fa-edit"></i></button>
           <button class="btn  btn-sm btn-outline-danger btn-trash" (click)="deleteParcours(p)"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
       </tbody>
     </table>
   </div>
-  <div class="card-footer">
-    <button class="btn  btn-outline-primary btn-block" (click)="open(content)">Ajouter un nouveau parcours</button>
+  <div class="card-footer" style="background-color: powderblue">
+    <button class="btn  btn-outline-light btn-info btn-block" (click)="open(content)">Add parcours</button>
   </div>
 </div>
 
 <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
+  <div class="modal-header" style="background-color: lightcyan">
     <h4 class="modal-title" id="modal-basic-title">ajout parcours</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" style="background-color: lightcyan">
     <div class="form">
       <div class="form-group">
-        <label>reference centre</label>
-        <input type="text" class="form-control" [(ngModel)]="parcours.centre.ref">
+        <label class="primaryLab"> centre </label>
+        <select type="text" class="btn btn-block btn-outline-light form-control"  style="background-color: lightblue" name="Parcours" (click)="findAllCentre()" [(ngModel)]="parcours.centre.ref" >
+          <option  selected="selected" *ngFor="let c of centreList"  [ngValue]="c.ref"> {{c.libelle}}</option>
+        </select>
       </div>
       <div class="form-group">
-        <label>reference</label>
-        <input type="text" class="form-control" [(ngModel)]="parcours.ref">
+        <label>Reference</label>
+        <input type="text" class="form-control text-center" placeholder="Reference" [(ngModel)]="parcours.ref">
       </div>
       <div class="form-group">
-        <label>libelle</label>
-        <input type="text" class="form-control" [(ngModel)]="parcours.libelle">
+        <label>Libelle</label>
+        <input type="text" class="form-control text-center" placeholder="Libelle" [(ngModel)]="parcours.libelle">
       </div>
       <div class="form-group">
         <label>description</label>
-        <input type="text" class="form-control" [(ngModel)]="parcours.description">
+        <input type="text" class="form-control text-center" placeholder="Description" [(ngModel)]="parcours.description">
       </div>
 
     </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-primary" (click)="save()" >Save</button>
+  <div class="modal-footer" style="background-color: lightcyan">
+    <button type="button" class="btn btn-outline-light btn-dark" (click)="save()"  >Save</button>
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
   </div>
 </ng-template>
 
-  <div class="card mt-lg-5" >
-    <div class="card-header">Liste des cours</div>
-    <div class="card-body">
-      <table class="table table-stripped">
-        <thead>
-        <th>Nom</th>
-        <th>description</th>
-        <th>Action</th>
-        </thead>
-        <tbody>
-        <tr  *ngFor="let c of coursList ; index as i">
-          <td>{{c.libelle}}</td>
-          <td>{{c.description }}</td>
-          <td >
-            <button class="btn  btn-sm btn-outline-info btn-plus " (click)="afficheSecList(c)"><i class="fa fa-eye"></i></button>
-            <button class="btn  btn-sm btn-outline-warning "><i class="fa fa-edit"></i></button>
-            <button class="btn  btn-sm btn-outline-danger btn-trash "(click)="deleteCours(c)"><i class="fa fa-trash"></i></button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card-footer">
-      <button class="btn  btn-outline-primary btn-block" (click)="open(contentcours)">Ajouter un nouveau cours</button>
-    </div>
-  </div>
 
-  <ng-template #contentcours let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" >ajout cours</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="form">
-        <div class="form-group">
-          <label>Parcours Reference</label>
-          <input type="text" class="form-control" [(ngModel)]=" cours.parcours.ref">
-        </div>
-        <div class="form-group">
-          <label>reference</label>
-          <input type="text" class="form-control" [(ngModel)]="cours.ref">
-        </div>
-        <div class="form-group">
-          <label>libelle</label>
-          <input type="text" class="form-control" [(ngModel)]="cours.libelle">
-        </div>
-        <div class="form-group">
-          <label>detail</label>
-          <input type="text" class="form-control" [(ngModel)]="cours.description">
-        </div>
-        <div class="form-group">
-          <label>url image</label>
-          <input type="texte" class="form-control" [(ngModel)]="cours.image">
-        </div>
-
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-primary" (click)="savecours()" >Save</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
-    </div>
-  </ng-template>
-  <div class="card mt-lg-5" >
-    <div class="card-header">Liste des sections</div>
-    <div class="card-body">
-
-      <table class="table table-stripped">
-        <thead>
-        <th>categorieSection</th>
-        <th>Libelle</th>
-        <th>Action</th>
-
-
-        </thead>
-        <tbody>
-        <tr *ngFor="let s of sectionList">
-          <td>{{s.categorieSection.libelle}}</td>
-          <td>{{s.libelle}}</td>
-          <td>
-            <button class="btn  btn-sm btn-outline-info btn-plus " (click)="open(list)"><i class="fa fa-eye"></i></button>
-            <button class="btn  btn-sm btn-outline-warning "><i class="fa fa-edit"></i></button>
-            <button class="btn  btn-sm btn-outline-danger btn-trash "(click)="deleteSection(s)"><i class="fa fa-trash"></i></button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card-footer">
-      <button class="btn btn-outline-primary btn-block" (click)="open(contentsection)">Ajouter une nouvelle section</button>
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </div>
-  </div>
-
-  <ng-template #contentsection let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" >Ajout d'une section</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="form">
-        <div class="form-group">
-          <label>Cours reference</label>
-          <input type="text" class="form-control" [(ngModel)]="section.cours.ref">
-        </div>
-        <div class="form-group">
-          <label>categorieSection reference</label>
-          <input type="text" class="form-control" [(ngModel)]="section.categorieSection.ref">
-        </div>
-        <div class="form-group">
-          <label>reference</label>
-          <input type="text" class="form-control" [(ngModel)]="section.ref">
-        </div>
-        <div class="form-group">
-          <label>Libelle</label>
-          <input type="text" class="form-control" [(ngModel)]="section.libelle">
-        </div>
-        <div class="form-group">
-          <label>question</label>
-          <input type="text" class="form-control" [(ngModel)]="section.questions">
-        </div>
-        <div class="form-group">
-          <label>urlimage</label>
-          <input type="text" class="form-control" [(ngModel)]="section.urlimage">
-        </div>
-        <div class="form-group">
-          <label>urlvideo</label>
-          <input type="text" class="form-control" [(ngModel)]="section.urlvideo">
-        </div>
-        <div class="form-group">
-          <label>contenu</label>
-          <input type="text" class="form-control" [(ngModel)]="section.contenu">
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-primary" (click)="savesection()" >Save</button>
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
-    </div>
-  </ng-template>
-  <ng-template #list let-c="close" let-d="dismiss">
-    <div class="card mt-lg-5">
-      <div class="card-header">information Section</div>
-      <div class="card-body">
-
-        <table class="table table-stripped table-bordered">
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>Reference</td>
-            <td>{{s.ref}}</td>
-          </tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>contenu</td>
-            <td>{{s.contenu}}</td></tr>
-
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>questions</td>
-            <td>{{s.questions}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>indication Prof</td>
-            <td>{{s.indicationProf}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>url image</td>
-            <td>{{s.urlimage}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>url image2</td>
-            <td>{{s.urlimage2}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>url image3</td>
-            <td>{{s.urlimage3}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>url video</td>
-            <td>{{s.urlvideo}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>cours </td>
-            <td>{{s.cours.libelle}}</td></tr>
-          <tr *ngFor="let s of sectionList; index as i">
-            <td>categorieSection </td>
-            <td>{{s.categorieSection.libelle}}</td></tr>
-        </table>
-      </div>
-    </div>
-  </ng-template>
-
-
-</div>

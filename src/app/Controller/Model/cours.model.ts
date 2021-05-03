@@ -9,7 +9,7 @@ export class Cours {
   public nombreContenuFinalise: number;
   public nombreContenuEnCours: number;
   public nombreLienFinalise: number;
-  public nombreLienEnCourse: number;
+  public nombreLienEnCours: number;
   public numeroOrder: number;
   public parcours = new  Parcours() ;
   public  sectionList = new Array<Section>();

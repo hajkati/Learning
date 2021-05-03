@@ -14,7 +14,7 @@ export class Section {
   public nombreContenuFinalise: number;
   public nombreContenuEnCours: number;
   public nombreLienFinalise: number;
-  public nombreLienEnCourse: number;
+  public nombreLienEnCours: number;
   public cours = new  Cours() ;
   public categorieSection = new  CategorieSection() ;
 }

@@ -1,34 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Brand</a>
+
+<nav class="navbar navbar-expand-xl navbar-dark responsive " style="background-color: powderblue">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#">Centre</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav">
-        <li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
-        <li class="nav-item"><a class="nav-link" routerLink="parcours" routerLinkActive="active"> learning </a></li>
-        <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+        <li class="nav-item active"> <a class="nav-link" href="#" #home >Home </a> </li>
+        <li class="nav-item active"> <a class="nav-link" routerLink="etudiant">inscription </a> </li>
+
+        <li class="nav-item active"> <a class="nav-link" routerLink="parcours" routerLinkActive="active">Parcours </a> </li>
+        <li class="nav-item active"> <a class="nav-link" routerLink="quiz">Quiz </a> </li>
+        <li class="nav-item active"> <a class="nav-link" routerLink="quiz-create">Create Quiz </a> </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Hover me  </a>
+          <a class="nav-link dropdown-toggle active"  data-bs-toggle="dropdown">  list  </a>
           <ul class="dropdown-menu fade-up">
-            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
-            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-            <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+            <li><a class="dropdown-item " routerLink="parcours-list" routerLinkActive="active"> List Parcours </a></li>
+            <li><a class="dropdown-item "  routerLink="cours-list" routerLinkActive="active"> List Cours </a></li>
+            <li><a class="dropdown-item " routerLink="section-list" routerLinkActive="active"> List Section </a></li>
+            <li><a class="dropdown-item " routerLink="categoriesection-list" routerLinkActive="active"> List CategorieSection </a></li>
+            <li><a class="dropdown-item " routerLink="supercategoriesection-list" routerLinkActive="active"> List SuperCategorieSection </a></li>
           </ul>
         </li>
+
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Dropdown right </a>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle active"  data-bs-toggle="dropdown"> liste 2 </a>
           <ul class="dropdown-menu dropdown-menu-end fade-down">
-            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
-            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+            <li><a class="dropdown-item " routerLink="etudiant-list" routerLinkActive="active"> List etudiant </a></li>
+            <li><a class="dropdown-item " routerLink="inscription-list" routerLinkActive="active"> List inscription </a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"> liste 3 </a>
+          <ul class="dropdown-menu dropdown-menu-end fade-down active">
+            <li><a class="dropdown-item " routerLink="quiz-list" routerLinkActive="active"> List Quiz </a></li>
           </ul>
         </li>
       </ul>
     </div> <!-- navbar-collapse.// -->
   </div> <!-- container-fluid.// -->
 </nav>
+
+
+
+
+
+
+
+
+
+
+

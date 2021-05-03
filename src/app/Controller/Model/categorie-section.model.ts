@@ -5,6 +5,6 @@ export class CategorieSection {
   public  ref: string ;
   public  libelle: string ;
   public  numeroOrder: number;
-  public  sectionLists = new Array<Section>();
-  private superCategorieSection = new SuperCategorieSection();
+  public  sectionList = new Array<Section>();
+  public superCategorieSection = new SuperCategorieSection();
 }

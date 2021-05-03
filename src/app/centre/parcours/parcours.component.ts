@@ -5,6 +5,7 @@ import {ParcoursService} from '../../Controller/Service/parcours.service';
 import {Parcours} from '../../Controller/Model/parcours.model';
 import {Cours} from '../../Controller/Model/cours.model';
 import {Section} from '../../Controller/Model/section.model';
+import {Centre} from '../../Controller/Model/centre.model';
 
 @Component({
   selector: 'app-parcours',
@@ -14,6 +15,17 @@ import {Section} from '../../Controller/Model/section.model';
 export class ParcoursComponent implements OnInit {
 
   constructor(private parcoursService: ParcoursService, private modalService: NgbModal) { }
+  open(content): void {
+    this.modalService.open(content);
+  }
+  // tslint:disable-next-line:typedef
+  public updateParcours(index: number, parcours: Parcours){
+    this.parcoursService.updateParcours(index, parcours);
+  }
+  // tslint:disable-next-line:typedef
+  public validateSaveParcours(){
+    return  this.parcoursService.validateSaveParcours();
+  }
   // tslint:disable-next-line:typedef
   public deleteSection(sections: Section){
     this.parcoursService.deleteSection(sections);
@@ -33,7 +45,9 @@ export class ParcoursComponent implements OnInit {
   get parcoursList(): Array<Parcours> {
     return this.parcoursService.parcoursList;
   }
-  get parcours(): Parcours {
+  get centreList(): Array<Centre> {
+    return this.parcoursService.centreList;
+  }  get parcours(): Parcours {
     return this.parcoursService.parcours;
   }
   get coursList(): Array<Cours> {
@@ -54,7 +68,10 @@ export class ParcoursComponent implements OnInit {
   public deleteParcours(parcour: Parcours){
     this.parcoursService.deleteParcours(parcour);
   }
-
+  // tslint:disable-next-line:typedef
+  findAllCentre() {
+    this.parcoursService.findAllCentre();
+  }
   public save(): void {
     this.parcoursService.save();
   }
@@ -62,9 +79,7 @@ export class ParcoursComponent implements OnInit {
   ngOnInit(): void {
     this.parcoursService.init();
   }
-  open(content): void {
-    this.modalService.open(content);
-  }
+
 
   // tslint:disable-next-line:typedef
   afficheCours(parcour: Parcours): void {
