@@ -1,0 +1,13 @@
+div{
+  text-align: center;
+}
+.start{
+  margin-top: 60px;
+  visibility: visible;
+}
+.question{
+  visibility: hidden;
+}
+.card-body2{
+  visibility: hidden;
+}

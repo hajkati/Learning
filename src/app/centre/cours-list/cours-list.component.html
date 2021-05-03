@@ -1,0 +1,38 @@
+<div class="container-lg">
+  <div class="form-group mt-lg-5">
+    <label class="form-check-label form-inline mr-lg-n5 "> Nom Cours    <input type="search" class="form-control-sm mr-lg-3 form-inline"  #libelle [(ngModel)]=" cours.libelle"><button type="button" class="btn btn-outline-primary mr-lg-3" (click)="findCoursByLibelle(libelle.value)" >Search</button></label>
+  </div>
+  <div class="card table-responsive" >
+    <div class="card-header" style="background-color: lightcyan">Liste des cours</div>
+    <div class="card-body">
+      <table class="table table-striped table-hover table-responsive">
+        <thead>
+        <th>Numero Order</th>
+        <th>Reference</th>
+        <th>Libelle</th>
+        <th>description</th>
+        <th>parcours</th>
+        <th>Nombre Contenu Finalise</th>
+        <th>Nombre Contenu EnCours</th>
+        <th>Nombre Lien Finalise</th>
+        <th>nombre Lien EnCours</th>
+        <th>Url Image</th>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let c of coursList2 ; index as i">
+          <td>{{c.numeroOrder}}</td>
+          <td>{{c.ref}}</td>
+          <td>{{c.libelle}}</td>
+          <td>{{c.description }}</td>
+          <td>{{c.parcours.libelle }}</td>
+          <td>{{c.nombreContenuFinalise }}</td>
+          <td>{{c.nombreContenuEnCours }}</td>
+          <td>{{c.nombreLienFinalise}}</td>
+          <td>{{c.nombreLienEnCours }}</td>
+          <td>{{c.image }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="card   mt-lg-5" >
+  <div class="card-header"  style="background-color: powderblue">Liste des cours</div>
+  <div class="card-body" >
+    <div >
+    <table class="table table-striped table-hover table-responsive ">
+      <thead>
+      <th>Nom</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let c of coursList ; index as i">
+        <td>{{c.libelle}}</td>
+        <td >
+          <button class="btn  btn-sm btn-outline-info btn-plus " (click)="afficheSecList(c)"><i class="fa fa-eye"></i></button>
+          <button class="btn  btn-sm btn-outline-warning " (click)="open(contentcours)" (click)="updateCours(i,c)"><i class="fa fa-edit"></i></button>
+          <button class="btn  btn-sm btn-outline-danger btn-trash "(click)="deleteCours(c)"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card-footer" style="background-color: powderblue">
+    <button class="btn  btn-outline-light btn-info mr-lg-4 " (click)="open(contentcours)">Add cours</button>
+
+  </div>
+</div>
+
+
+<ng-template  #contentcours let-c="close" let-d="dismiss">
+  <div class="modal-header" style="background-color: lightcyan">
+    <h4 class="modal-title text-center" >ajout cours</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="background-color: lightcyan">
+    <div class="form">
+      <div class="form-group ">
+        <label class="primaryLab">Parcours </label><br>
+        <select type="text" class="btn btn-block btn-outline-light form-control " name="Parcours" style="background-color: lightblue"  (click)="init()" [(ngModel)]="cours.parcours.ref" >
+          <option  selected="selected" *ngFor="let p of parcoursList"  [ngValue]="p.ref"> {{p.libelle}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Reference</label>
+        <input type="text" class="form-control text-center " placeholder="Reference" [(ngModel)]="cours.ref">
+      </div>
+      <div class="form-group">
+        <label>Libelle</label>
+        <input type="text" class="form-control text-center" placeholder="Libelle" [(ngModel)]="cours.libelle">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea type="text" class="form-control text-center" placeholder="Description" rows="3" [(ngModel)]="cours.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>url image</label>
+        <input type="texte" class="form-control text-center" placeholder="Url image" [(ngModel)]="cours.image">
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer" style="background-color: lightcyan">
+    <button type="button" class="btn btn-outline-light btn-dark" (click)="savecours()" >Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">close</button>
+  </div>
+</ng-template>
+
+

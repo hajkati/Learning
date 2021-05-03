@@ -1,0 +1,44 @@
+<div class="container-lg">
+  <div class="form-group mt-lg-5">
+    <label class="form-check-label form-inline mr-lg-n5 "> Section  : <input type="search" class="form-control-sm mr-lg-3 form-inline"  #libellesection [(ngModel)]="section.libelle"><button type="button" class="btn btn-outline-primary mr-lg-3" (click)="findSectionByLibelle(libellesection.value)" >Search</button></label>
+  </div>
+  <div class="card table-responsive" >
+    <div class="card-header" style="background-color: lightcyan">Liste des Section</div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <th>Reference</th>
+        <th>Libelle</th>
+        <th>Contenu</th>
+        <th>Question</th>
+        <th>Indication Prof</th>
+        <th>Nombre Contenu Finalise</th>
+        <th>Nombre Contenu EnCours</th>
+        <th>Nombre Lien Finalise</th>
+        <th>nombre Lien EnCours</th>
+        <th>Url video</th>
+        <th>Url image</th>
+        <th>cours</th>
+        <th>CategorieSection</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of sectionList3">
+          <td>{{s.ref}}</td>
+          <td>{{s.libelle}}</td>
+          <td>{{s.contenu }}</td>
+          <td>{{s.questions}}</td>
+          <td>{{s.indicationProf}}</td>
+          <td>{{s.nombreContenuFinalise }}</td>
+          <td>{{s.nombreContenuEnCours }}</td>
+          <td>{{s.nombreLienFinalise}}</td>
+          <td>{{s.nombreLienEnCours }}</td>
+          <td>{{s.urlvideo }}</td>
+          <td>{{s.urlimage }}</td>
+          <td>{{s.cours.libelle}}</td>
+          <td>{{s.categorieSection.libelle }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

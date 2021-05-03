@@ -1,0 +1,25 @@
+<div class="container-lg">
+  <div class="form-group mt-lg-5">
+    <label class="form-check-label form-inline mr-lg-n5 "> SuperCategorieSection   : <input type="search" class="form-control-sm mr-lg-3 form-inline"  #libelle [(ngModel)]="supercategoriesection.libelle"><button type="button" class="btn btn-outline-primary mr-lg-3" (click)="findSuperCategorieSectionByLibelle(libelle.value)" >Search</button></label>
+  </div>
+  <div class="card table-responsive" >
+    <div class="card-header" style="background-color: lightcyan">Liste des SuperCategorieSection</div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <th>Numero Order</th>
+        <th>Reference</th>
+        <th>Libelle</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of supercategoriesectionList">
+          <td>{{s.numeroOrder}}</td>
+          <td>{{s.ref}}</td>
+          <td>{{s.libelle}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

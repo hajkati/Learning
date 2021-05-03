@@ -1,0 +1,33 @@
+<div class="container-lg">
+  <div class="form-group mt-lg-5">
+    <label class="form-check-label form-inline mr-lg-n5 "> Parcours  :  <input type="search" class="form-control-sm mr-lg-3 form-inline"  #libelle [(ngModel)]="parcours.libelle"><button type="button" class="btn btn-outline-primary mr-lg-3" (click)="findParcoursByLibelle(libelle.value)" >Search</button></label>
+  </div>
+  <div class="card table-responsive" >
+    <div class="card-header" style="background-color: lightcyan">Liste des Parcours</div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <th>Numero Order</th>
+        <th>Reference</th>
+        <th>Libelle</th>
+        <th>Description</th>
+        <th>DateCreation</th>
+        <th>DatePublication</th>
+        <th>Centre</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of parcoursList">
+          <td>{{p.numeroOrder}}</td>
+          <td>{{p.ref}}</td>
+          <td>{{p.libelle}}</td>
+          <td>{{p.description }}</td>
+          <td>{{p.dateCreation}}</td>
+          <td>{{p.datePublication }}</td>
+          <td>{{p.centre.libelle }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
